@@ -1,11 +1,14 @@
 import qs from "qs";
-import { useAuth } from "context/auth-context";
 import * as auth from "auth-provider";
+import { useAuth } from "context/auth-context";
+
 const apiUrl = process.env.REACT_APP_API_URL;
+
 interface Config extends RequestInit {
-  data?: object;
   token?: string;
+  data?: object;
 }
+
 export const http = async (
   endpoint: string,
   { data, token, headers, ...customConfig }: Config = {}
@@ -23,6 +26,8 @@ export const http = async (
   } else {
     config.body = JSON.stringify(data || {});
   }
+
+  // axios 和 fetch 的表现不一样，axios可以直接在返回状态不为2xx的时候抛出异常
   return window
     .fetch(`${apiUrl}/${endpoint}`, config)
     .then(async (response) => {
