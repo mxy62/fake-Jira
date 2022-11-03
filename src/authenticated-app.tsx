@@ -17,30 +17,30 @@ export const AuthenticatedApp = () => {
           <button onClick={logout}>登出</button>
         </HeaderRight>
       </Header>
-      <Nav>nav</Nav>
+      {/* <Nav>nav</Nav> */}
       <Main>
         <ProjectListScreen />
       </Main>
-      <Sider>sider</Sider>
-      <Footer>footer</Footer>
+      {/* <Sider>sider</Sider>
+      <Footer>footer</Footer> */}
     </Container>
   );
 };
 
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 6rem 1fr 6rem;
-  grid-template-columns: 20rem 1fr 20rem;
-  grid-template-areas:
+  grid-template-rows: 6rem 1fr;
+  /* grid-template-columns: 20rem 1fr 20rem; */
+  /* grid-template-areas:
     "header header header"
     "nav main sider"
-    "footer footer footer";
+    "footer footer footer"; */
   height: 100vh;
   /* background-color: black; */
-  grid-gap: 20px;
+  /* grid-gap: 20px; */
 `;
 const Header = styled.div`
-  grid-area: header;
+  /* grid-area: header; */
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -51,15 +51,15 @@ const HeaderLeft = styled.div`
   align-items: center;
 `;
 const HeaderRight = styled.div``;
-const Nav = styled.div`
-  grid-area: nav;
-`;
+// const Nav = styled.div`
+//   grid-area: nav;
+// `;
 const Main = styled.div`
-  grid-area: main;
+  /* grid-area: main; */
 `;
-const Sider = styled.div`
-  grid-area: sider;
-`;
-const Footer = styled.div`
-  grid-area: footer;
-`;
+// const Sider = styled.div`
+//   grid-area: sider;
+// `;
+// const Footer = styled.div`
+//   grid-area: footer;
+// `;
