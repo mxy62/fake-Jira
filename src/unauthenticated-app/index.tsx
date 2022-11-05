@@ -17,10 +17,9 @@ export const UnauthenticatedApp = () => {
         <Title>{isRegister ? "请注册" : "请登录"}</Title>
         {isRegister ? <RegisterScreen /> : <LoginScreen />}
         <Divider />
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid*/}
-        <a onClick={() => setIsRegister(!isRegister)}>
-          切换到{isRegister ? "登录" : "注册"}
-        </a>
+        <Button type={"link"} onClick={() => setIsRegister(!isRegister)}>
+          {isRegister ? "已经有账号了？直接登录" : "没有账号？注册新账号"}
+        </Button>
       </ShadowCard>
     </Container>
   );
