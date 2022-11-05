@@ -2,64 +2,47 @@ import React from "react";
 import { ProjectListScreen } from "screens/project-list";
 import { useAuth } from "context/auth-context";
 import styled from "@emotion/styled";
+import { Row } from "components/lib";
 
 export const AuthenticatedApp = () => {
   const { logout } = useAuth();
   return (
     <Container>
-      <Header>
-        <HeaderLeft>
-          <h3>logo</h3>
-          <h3>项目</h3>
-          <h3>用户</h3>
+      <Header between={true}>
+        <HeaderLeft gap={true}>
+          <h2>Logo</h2>
+          <h2>项目</h2>
+          <h2>用户</h2>
         </HeaderLeft>
         <HeaderRight>
           <button onClick={logout}>登出</button>
         </HeaderRight>
       </Header>
       {/* <Nav>nav</Nav> */}
+      {/* <Main>
+        <ProjectListScreen />
+      </Main> */}
+      {/* <Sider>sider</Sider>
+      <Footer>footer</Footer> */}
       <Main>
         <ProjectListScreen />
       </Main>
-      {/* <Sider>sider</Sider>
-      <Footer>footer</Footer> */}
     </Container>
   );
 };
 
+const HeaderItem = styled.h3`
+  margin-right: 3rem;
+`;
+
 const Container = styled.div`
   display: grid;
   grid-template-rows: 6rem 1fr;
-  /* grid-template-columns: 20rem 1fr 20rem; */
-  /* grid-template-areas:
-    "header header header"
-    "nav main sider"
-    "footer footer footer"; */
   height: 100vh;
-  /* background-color: black; */
-  /* grid-gap: 20px; */
 `;
-const Header = styled.div`
-  /* grid-area: header; */
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
-`;
-const HeaderLeft = styled.div`
-  display: flex;
-  align-items: center;
-`;
+
+// grid-area 用来给grid子元素起名字
+const Header = styled(Row)``;
+const HeaderLeft = styled(Row)``;
 const HeaderRight = styled.div``;
-// const Nav = styled.div`
-//   grid-area: nav;
-// `;
-const Main = styled.div`
-  /* grid-area: main; */
-`;
-// const Sider = styled.div`
-//   grid-area: sider;
-// `;
-// const Footer = styled.div`
-//   grid-area: footer;
-// `;
+const Main = styled.main``;
