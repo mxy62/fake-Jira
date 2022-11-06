@@ -3,7 +3,7 @@ import { useAuth } from "context/auth-context";
 import { Form, Input } from "antd";
 import { LongButton } from "unauthenticated-app/index";
 import { useAsync } from "utils/use-async";
-import { clearConfigCache } from "prettier";
+
 // interface Base {
 //   id: number
 // }
@@ -19,13 +19,14 @@ import { clearConfigCache } from "prettier";
 // const a = {id: 1, name: 'jack'}
 // test(a)
 const apiUrl = process.env.REACT_APP_API_URL;
+
 export const LoginScreen = ({
   onError,
 }: {
   onError: (error: Error) => void;
 }) => {
   const { login, user } = useAuth();
-  const { isLoading, run, error } = useAsync();
+  const { run, isLoading } = useAsync(undefined, { throwOnError: true });
 
   // HTMLFormElement extends Element
   const handleSubmit = async (values: {
@@ -34,8 +35,8 @@ export const LoginScreen = ({
   }) => {
     try {
       await run(login(values));
-    } catch (error) {
-      onError(error);
+    } catch (e) {
+      onError(e);
     }
   };
 
