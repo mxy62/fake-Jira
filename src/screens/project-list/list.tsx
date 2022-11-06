@@ -14,7 +14,6 @@ export interface Project {
 }
 
 interface ListProps extends TableProps<Project> {
-  // list: Project[];
   users: User[];
 }
 
@@ -58,7 +57,6 @@ export const List = ({ users, ...props }: ListProps) => {
         },
       ]}
       {...props}
-      // dataSource={list}
     />
   );
 };
