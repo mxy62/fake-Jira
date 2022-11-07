@@ -3,6 +3,7 @@ import { useAuth } from "context/auth-context";
 import { Form, Input } from "antd";
 import { LongButton } from "unauthenticated-app/index";
 import { useAsync } from "utils/use-async";
+import { useMount } from "utils";
 
 // interface Base {
 //   id: number
@@ -26,7 +27,9 @@ export const LoginScreen = ({
   onError: (error: Error) => void;
 }) => {
   const { login, user } = useAuth();
-  const { run, isLoading } = useAsync(undefined, { throwOnError: true });
+  const { run, isLoading } = useAsync(undefined, {
+    throwOnError: true,
+  });
 
   // HTMLFormElement extends Element
   const handleSubmit = async (values: {
@@ -39,6 +42,9 @@ export const LoginScreen = ({
       onError(e);
     }
   };
+  useMount(() => {
+    run(login({ username: "1", password: "2" }));
+  });
 
   return (
     <Form onFinish={handleSubmit}>
