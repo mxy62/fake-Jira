@@ -15,3 +15,4 @@ Mixin -> HOC -> Render Prop -> Custom Hook
 最后会给大家设置一个思考题 🤔
 
 just test git rebase
+用来测试 rebase 模式
