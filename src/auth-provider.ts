@@ -24,6 +24,11 @@ export const login = (data: { username: string; password: string }) => {
     if (response.ok) {
       return handleUserResponse(await response.json());
     } else {
+      // new Promise((resolve, reject) => {
+      //   reject(); //报错
+      // }).catch((e) => {
+      //   console.log(e);
+      // });
       return Promise.reject(await response.json());
     }
   });
